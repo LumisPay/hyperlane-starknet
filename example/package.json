@@ -1,0 +1,25 @@
+{
+	"name": "example",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"deploy": "cd ../scripts && npm run deploy && cd ../example",
+		"deploy-route": "ts-node scripts/deploy-route.ts",
+		"update-hooks": "cd ../scripts && npm run update-hooks -r $REQUIRED_HOOK -d $DEFAULT_HOOK",
+		"enroll-remote-router": "ts-node scripts/enroll-remote-router",
+		"bridge:to:starknet": "ts-node bridge.ts chiado",
+		"bridge:to:gnosis": "ts-node bridge-to-gnosis.ts"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "MIT",
+	"dependencies": {
+		"@types/node": "^22.0.2",
+		"ethers": "^6.14.3",
+		"dotenv": "^16.4.5",
+		"fs": "^0.0.1-security",
+		"starknet": "^7.6.4",
+		"ts-node": "^10.9.2"
+	}
+}

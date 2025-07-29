@@ -1,0 +1,112 @@
+{
+	"relayChains": "starknetsepolia,chiado",
+	"chains": {
+		"starknetsepolia": {
+			"signer": {
+				"type": "starkKey"
+			},
+			"gasCurrencyCoinGeckoId": "starknet",
+			"name": "starknetsepolia",
+			"displayName": "Starknet Sepolia",
+			"protocol": "starknet",
+			"chainId": "0x534e5f5345504f4c4941",
+			"domainId": 23448591,
+			"isTestnet": true,
+			"blocks": {
+				"confirmations": 1,
+				"estimateBlockTime": 30,
+				"reorgPeriod": 1
+			},
+
+			"rpcUrls": [{ "http": "https://starknet-sepolia.public.blastapi.io/rpc/v0_8" }],
+
+			"blockExplorers": [
+				{
+					"name": "Starknet Sepolia Explorer",
+					"family": "voyager",
+					"url": "https://sepolia.voyager.online",
+					"apiUrl": "https://sepolia.voyager.online/api"
+				}
+			],
+
+			"nativeToken": {
+				"name": "Stark",
+				"symbol": "STRK",
+				"decimals": 18,
+				"denom": "0x4718f5a0fc34cc1af16a1cdee98ffb20c31f5cd61d6ab07201858f4287c938d"
+			},
+			"merkleRootMultisigIsm": "0x048...",
+			"messageIdMultisigIsm": "0x0499...",
+			"domainRoutingIsm": "0x05d2...",
+			"noopIsm": "0x02dc...",
+			"pausableIsm": "0x07ff...",
+			"aggregation": "0x031e...",
+			"protocolFee": "0x0466...",
+			"hook": "0x0462...",
+			"mailbox": "0x02e5...",
+			"merkleTreeHook": "0x06ac...",
+			"defaultFallbackRoutingIsm": "0x0474...",
+			"trustedRelayerIsm": "0x027d...",
+			"domainRoutingHook": "0x025d...",
+			"validator_announce": "0x025d...",
+			"interchainGasPaymaster": "0x0000000000000000000000000000000000000000",
+			"index": {
+				"from": 1250000
+			}
+		},
+		"chiado": {
+			"blockExplorers": [
+				{
+					"apiUrl": "https://gnosis-chiado.blockscout.com/api",
+					"family": "blockscout",
+					"name": "Chiado Explorer",
+					"url": "https://gnosis-chiado.blockscout.com"
+				}
+			],
+			"blocks": {
+				"confirmations": 1,
+				"estimateBlockTime": 5,
+				"reorgPeriod": 5
+			},
+			"chainId": 10200,
+			"deployer": {
+				"name": "k4ctuss",
+				"url": "https://github.com/k4ctuss"
+			},
+			"displayName": "Gnosis Chiado Testnet",
+			"domainId": 10200,
+			"isTestnet": true,
+			"name": "chiado",
+			"nativeToken": {
+				"decimals": 18,
+				"name": "xDai",
+				"symbol": "xDai"
+			},
+			"protocol": "ethereum",
+			"rpcUrls": [
+				{
+					"http": "https://gnosis-chiado-rpc.publicnode.com"
+				}
+			],
+			"technicalStack": "other",
+			"domainRoutingIsmFactory": "0x7c09b92a4818B08b8aA47a11698652fC6Aee11F0",
+			"interchainAccountIsm": "0xCbCDfC039ED11e0ff461dDDDe0825E4fd454c2b7",
+			"interchainAccountRouter": "0x4e93f12403eA3AA3e467b2e02044b42912e3cAb0",
+			"mailbox": "0x7323E06E40B0Fb82Dc26D309AaF14e49D266A6a7",
+			"merkleTreeHook": "0x9Da0eb6667033e01936cD914b46E32d9560D848B",
+			"proxyAdmin": "0x75A7BFEd3c9de77c5C27205D6Ddf772744ca48fc",
+			"staticAggregationHookFactory": "0x50fDFa26b9e9cCFf4Af8d6A0F95FBdc0F78F6E99",
+			"staticAggregationIsmFactory": "0xe95E3EF49b0fB2151301480d1845E760B5575A39",
+			"staticMerkleRootMultisigIsmFactory": "0xcE41FAc8bfAcb89f6AF3978E655C8839Ee21803a",
+			"staticMerkleRootWeightedMultisigIsmFactory": "0x32Ada46916c814704378af86163D1861aD8d4f29",
+			"staticMessageIdMultisigIsmFactory": "0xEB94C84C1aDB6aBA8866EC457d85374642937E2d",
+			"staticMessageIdWeightedMultisigIsmFactory": "0xEc02d931299Dc41342fD655f62b79345bA646714",
+			"testRecipient": "0x4e2d35b59FaC85FEFE30416745e743F9c7CaCB02",
+			"validatorAnnounce": "0xEb079356da4fE505ebA2018EB4D3B2db036B8Da5",
+			"interchainGasPaymaster": "0x0000000000000000000000000000000000000000",
+			"index": {
+				"from": 16990000
+			}
+		}
+	}
+}

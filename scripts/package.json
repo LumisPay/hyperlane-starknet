@@ -15,6 +15,6 @@
     "commander": "^12.1.0",
     "dotenv": "^16.4.5",
     "fs": "^0.0.1-security",
-    "starknet": "^6.11.0"
+    "starknet": "^7.6.4"
   }
 }

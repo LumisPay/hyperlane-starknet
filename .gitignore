@@ -1,2 +1,8 @@
 scripts/node_modules
+scripts/package-lock.json
 scripts/.env
+
+example/node_modules
+example/package-lock.json
+example/.env
+example/infra/.env
