@@ -69,19 +69,19 @@ This guide will help you deploy the Warp route on Starknet and Gnosis Chiado.
     <details closed>
       <summary><b>The prompts should be similar to the following: (click to expand)</b></summary>
 
-    ? Select chains to connect gnosischiadotestnet, starknetsepolia
-    ? Is this chain selection correct?: gnosischiadotestnet, starknetsepolia yes
-    gnosischiadotestnet: Configuring warp route...
-    ? Enter the desired owner address: 0x_your_gnosischiado_owner_address
-    ? Use an existing Proxy Admin contract for the warp route deployment on chain "gnosischiadotestnet"? no
-    ? Do you want to use a trusted ISM for warp route? yes
-    ? Select gnosischiadotestnet's token type collateral
-    ? Enter the existing token address on chain gnosischiadotestnet 0x_gnosischiado_token_you_want_to_bridge_address
-    starknetsepolia: Configuring warp route...
-    ? Enter the desired owner address: 0x_your_starknetsepolia_owner_address
-    ? Use an existing Proxy Admin contract for the warp route deployment on chain "starknetsepolia"? no
-    ? Do you want to use a trusted ISM for warp route? yes
-    ? Select starknetsepolia's token type synthetic
+    ? Select chains to connect gnosischiadotestnet, starknetsepolia <br />
+    ? Is this chain selection correct?: gnosischiadotestnet, starknetsepolia yes <br />
+    gnosischiadotestnet: Configuring warp route... <br />
+    ? Enter the desired owner address: 0x_your_gnosischiado_owner_address <br />
+    ? Use an existing Proxy Admin contract for the warp route deployment on chain "gnosischiadotestnet"? no <br />
+    ? Do you want to use a trusted ISM for warp route? yes <br />
+    ? Select gnosischiadotestnet's token type collateral <br />
+    ? Enter the existing token address on chain gnosischiadotestnet 0x_gnosischiado_token_you_want_to_bridge_address <br />
+    starknetsepolia: Configuring warp route... <br />
+    ? Enter the desired owner address: 0x_your_starknetsepolia_owner_address <br />
+    ? Use an existing Proxy Admin contract for the warp route deployment on chain "starknetsepolia"? no <br />
+    ? Do you want to use a trusted ISM for warp route? yes <br />
+    ? Select starknetsepolia's token type synthetic <br />
     Warp Route config is valid, writing to file undefined:
 
   </details>
@@ -98,8 +98,8 @@ This guide will help you deploy the Warp route on Starknet and Gnosis Chiado.
     <details closed>
       <summary><b>Example output:</b></summary>
 
-    Declaring contract HypERC20...
-    Contract HypERC20 declared with class hash: 0x_class_hash
+    Declaring contract HypERC20... <br />
+    Contract HypERC20 declared with class hash: 0x_class_hash <br />
     HypERC20 contract deployed at address: 0x_deployed_contract_address
 
     </details>

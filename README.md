@@ -125,6 +125,10 @@ Constructors parameters can be specified in the `contract_config.json`.
 
 The rust repository is strictly used for tests purposes.
 
+## Example
+
+A fully runnable example lives in the [`example`](example/README.md) folder.  
+
 ## 📖 License
 
 This project is licensed under the **MIT license**. See [LICENSE](LICENSE) for more information.
