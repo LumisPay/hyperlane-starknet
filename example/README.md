@@ -1,4 +1,4 @@
-# Hyperlane x Starknet - Warp Route Deployment Guide
+# Hyperlane - Starknet Sepolia <> Gnosis Chiado - Warp Route Deployment Guide
 
 We use the Hyperlane protocol to deploy a Warp route between Starknet and Gnosis Chiado. This allows us to transfer tokens between these two networks efficiently.
 
@@ -13,7 +13,7 @@ We use the Hyperlane protocol to deploy a Warp route between Starknet and Gnosis
 
 ## Setup
 
-To set up the Hyperlane project, follow these steps:
+To set up the project, follow these steps:
 
 ### Install Dependencies
 
@@ -32,9 +32,9 @@ cd ../cairo && scarb build && cd ../example
 
 ### Setup Environment Variables
 
-1. Copy the .env.example file from `/example` directory to `.env` and populate the necessary variables
+1. Copy the `.env.example` file from `/example` directory to `.env` and populate the necessary variables
 
-2. Copy the .env.example file from `/scripts` directory to `.env` and populate the necessary variables
+2. Copy the `.env.example` file from `/scripts` directory to `.env` and populate the necessary variables
 
 ### Gas Fees
 
@@ -105,14 +105,22 @@ This guide will help you deploy the Warp route on Starknet and Gnosis Chiado.
     </details>
     <br />
 
-4.  **Update the `starknetsepolia-deploy.yaml` file with the deployed contract address from step 1:**
-    `foreignDeployment: 0x<deployed_contract_address_on_step_3>`, the mailbox and ism addresses should be updated as well.
-    Also you must add the `remoteDecimals` field, which is the decimals of the token on Gnosis Chiado.
+4.  **Replace the `starknetsepolia` section in `starknetsepolia-deploy.yaml`**
 
-    > the file is located at `~/.hyperlane/deployments/warp_routes/$COLLATERAL_TICKER`
+    ```yaml
+    starknetsepolia:
+      foreignDeployment: 0x<address_from_step_3> # deployed contract
+      remoteDecimals: 18 # Chiado token decimals
+      mailbox: 0x<mailbox_address_from_step_1> # mailbox contract
+      interchainSecurityModule: 0x<ism_address_from_step_1>
+      owner: 0x<your_starknet_account> # your address
+      type: synthetic
+    ```
 
-    <details closed>
-      <summary><b>Example starknetsepolia-deploy.yaml</b></summary>
+    the file is located at `~/.hyperlane/deployments/warp_routes/$COLLATERAL_TICKER`
+
+     <details closed>
+       <summary><b>Example starknetsepolia-deploy.yaml</b></summary>
 
     ```yaml
     gnosischiadotestnet:
@@ -137,8 +145,8 @@ This guide will help you deploy the Warp route on Starknet and Gnosis Chiado.
       owner: '0x_your_starknetsepolia_owner_address'
     ```
 
-    </details>
-    <br />
+     </details>
+     <br />
 
 5.  **Deploy the Warp route to Gnosis Chiado:**
 
