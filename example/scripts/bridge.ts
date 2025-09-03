@@ -9,12 +9,17 @@
 
 import 'dotenv/config';
 import { ethers } from 'ethers';
-import { Account, cairo, CallData, Contract, json } from 'starknet';
+import { Account, BigNumberish, cairo, CairoOption, CairoOptionVariant, Contract, json } from 'starknet';
 
 import dotenv from 'dotenv';
 import { buildAccount } from '../../scripts/utils'; // ← your helper
 
 import fs from 'fs';
+
+type Order = {
+	p1: BigNumberish;
+	p2: BigNumberish;
+};
 
 dotenv.config();
 
@@ -43,6 +48,8 @@ export function getCompiledContract(name: string): any {
 const CHIADO_RPC = 'https://gnosis-chiado-rpc.publicnode.com';
 const GNOSIS_CHIADO_PK = process.env.GNOSIS_CHIADO_PK as string; // EOA that holds the token
 const CHIADO_DOMAIN_ID = '10200'; // Chiado domain-id
+const CHIADO_RECIPIENT = '0x_your_gnosischiado_recipient_address'; // recipient on Gnosis Chiado
+
 // the token address on Gnosis Chiado we want to bridge
 const collateralAddress = '0x_gnosischiado_token_you_want_to_bridge_address';
 // the HypERC20Collateral contract on Gnosis Chiado chain
@@ -104,22 +111,26 @@ async function bridge(origin: 'chiado' | 'starknetsepolia') {
 		const account: Account = await buildAccount();
 
 		const compiledContract = getCompiledContract('HypErc20');
-		const token = new Contract(compiledContract.abi, HYPERC20_ADDRESS, account);
+		const tokenContract = new Contract(compiledContract.abi, STARKNET_HYPERC20_ADDRESS, account);
 
-		const amount = cairo.uint256('100000000000000000'); // 0.1 token
-		const recipient = '0x' + process.env.CHIADO_RECIPIENT!.slice(2).padStart(64, '0');
-
-		const calldata = CallData.compile({
-			destination_domain: Number(CHIADO_DOMAIN_ID),
-			recipient,
-			amount
-		});
+		const amount = 1;
+		const formattedAmount = cairo.uint256(amount * 10 ** 18);
+		const recipient = '0x' + CHIADO_RECIPIENT!.slice(2).padStart(64, '0');
 
 		console.log('🔥  burning synthetic token on Starknet…');
-		const tx = await token.invoke('transfer_remote', calldata);
-		await account.waitForTransaction(tx.transaction_hash);
+		const txRes = await tokenContract.invoke('transfer_remote', [
+			// gnosis chain domain id
+			Number(CHIADO_DOMAIN_ID),
+			recipient, // gnosis chiado recipient
+			formattedAmount, // amount
+			0, // value
+			new CairoOption<Order>(CairoOptionVariant.None), // hook_metadata
+			new CairoOption<Order>(CairoOptionVariant.None) // hook
+		]);
 
-		console.log(`✅  burn sent  →  ${tx.transaction_hash}`);
+		await account.waitForTransaction(txRes.transaction_hash);
+
+		console.log(`✅  burn sent  →  ${txRes.transaction_hash}`);
 		console.log('⏳  Relayer will unlock on Chiado once signatures arrive.');
 	}
 }
