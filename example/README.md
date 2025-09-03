@@ -170,7 +170,23 @@ This guide will help you deploy the Warp route on Starknet and Gnosis Chiado.
     npm run enroll-remote-router
     ```
 
-<br />
+7.  **Update the hooks on Starknet**
+
+    You can update the hooks on Starknet using the following command:
+
+    ```bash
+    npm run update-hooks -- -r $REQUIRED_HOOK -d $DEFAULT_HOOK
+    ```
+
+    Replace `$REQUIRED_HOOK` and `$DEFAULT_HOOK` with the desired hook addresses.
+
+    Example:
+
+    ```bash
+    npm run update-hooks -- -r 0x_required_hook_address -d 0x_default_hook_address
+    ```
+
+    <br />
 
 You are now ready to use the Warp route on both Starknet and Gnosis Chiado 🎉
 

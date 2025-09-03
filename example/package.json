@@ -6,10 +6,10 @@
 	"scripts": {
 		"deploy": "cd ../scripts && npm run deploy && cd ../example",
 		"deploy-route": "ts-node scripts/deploy-route.ts",
-		"update-hooks": "cd ../scripts && npm run update-hooks -r $REQUIRED_HOOK -d $DEFAULT_HOOK",
+		"update-hooks": "cd ../scripts && npm run update-hooks --",
 		"enroll-remote-router": "ts-node scripts/enroll-remote-router",
-		"bridge:to:starknet": "ts-node bridge.ts chiado",
-		"bridge:to:gnosis": "ts-node bridge-to-gnosis.ts"
+		"bridge:to:starknet": "ts-node scripts/bridge.ts chiado",
+		"bridge:to:gnosis": "ts-node scripts/bridge.ts starknetsepolia"
 	},
 	"keywords": [],
 	"author": "",

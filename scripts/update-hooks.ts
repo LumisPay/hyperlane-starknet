@@ -6,6 +6,9 @@ import { Command } from "commander";
 
 dotenv.config();
 
+// example usage:
+// npm run update-hooks -- -r 0x_required_hook_address -d 0x_default_hook_address
+
 // Initialize commander
 const program = new Command();
 
